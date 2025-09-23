@@ -11,3 +11,8 @@ void setup()
 
 void loop()
 {
+ ADC_val = analogRead(my_analog_pin);
+  Serial.println(ADC_val);
+  digital_map_LED = map(ADC_val, 0, 1023, 0, 255);
+  analogWrite(LED, digital_map_LED);
+}
