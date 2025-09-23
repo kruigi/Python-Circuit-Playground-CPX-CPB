@@ -13,24 +13,3 @@ void loop()
 }
 
 
-Lab 2: analog
-
-
-const int my_analog_pin = A0;
-const int LED = 8;
-int ADC_val = 0;
-int digital_map_LED;
-void setup()
-{
-  Serial.begin(115200);
-  pinMode(LED, OUTPUT);
-  pinMode(my_analog_pin, INPUT);
-}
-
-void loop()
-{
- ADC_val = analogRead(my_analog_pin);
-  Serial.println(ADC_val);
-  digital_map_LED = map(ADC_val, 0, 1023, 0, 255);
-  analogWrite(LED, digital_map_LED);
-}
