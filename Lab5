@@ -1,0 +1,37 @@
+const int my_analog_pin = A0;
+const int LED = 8;
+int ADC_val = 0;
+int digital_map_LED;
+int u;
+void setup()
+{
+  Serial.begin(115200);
+  pinMode(LED, OUTPUT);
+  pinMode(my_analog_pin, INPUT);
+}
+
+void loop()
+{
+  
+ ADC_val = analogRead(my_analog_pin);
+  if(ADC_val < 514){
+  Serial.println("less than"); 
+    u = 1;
+  }
+  else if(ADC_val == 514){
+   Serial.println("equal to"); 
+    u = 2;
+  }
+  else{
+   Serial.println("greater than"); 
+    u = 2;
+  }
+  Serial.println(ADC_val);
+  digital_map_LED = map(ADC_val, 54, 974, 0, 1800);
+  if(u == 2){
+  analogWrite(LED, digital_map_LED);
+  }
+  else{
+   analogWrite(LED, LOW); 
+  }
+}
