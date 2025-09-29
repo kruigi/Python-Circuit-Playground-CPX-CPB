@@ -1,0 +1,36 @@
+const int trig = 9;
+const int Echo = 10;
+const int motor = 2;
+
+void setup() {
+  
+  pinMode(trig, OUTPUT);
+  pinMode(Echo, INPUT);
+  Serial.begin(9600);
+   
+  
+}
+
+
+void loop() {
+ 
+  
+  digitalWrite(trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+
+  float duration = pulseIn(Echo, HIGH);
+  float distance = (duration*.0343)/2;
+  int count = 0;
+  Serial.print("Distance: ");
+  Serial.println(distance);
+  if(distance >5 ){
+    count++;
+
+  }
+}
+
+
+
