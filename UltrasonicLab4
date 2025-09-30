@@ -1,0 +1,56 @@
+const int trig = 9;
+const int Echo = 10;
+const int motor = 2;
+float distance;
+float duration;
+int count = 0;
+void setup() {
+ 
+  pinMode(trig, OUTPUT);
+  pinMode(Echo, INPUT);
+  Serial.begin(9600);
+   
+  
+}
+
+
+void loop() {
+ 
+  distance = finddistance();
+  
+  Serial.print("Distance: ");
+  Serial.println(distance);
+  
+  while(distance >= 3){
+    Serial.println("waiting for object");
+    delay(100);
+    distance = finddistance();
+    Serial.println(distance);
+  }
+  while(distance < 3){
+    Serial.println("found object");
+    delay(100);
+    distance = finddistance();
+    Serial.println(distance);
+    
+  }
+  count++;
+  Serial.println("object has passed");
+  Serial.print(count);
+  Serial.println(" objects have passed");
+  Serial.println(distance);
+  delay(1000);
+
+  
+}
+
+float finddistance(){
+    digitalWrite(trig, LOW);
+    delayMicroseconds(2);
+    digitalWrite(trig, HIGH);
+     delayMicroseconds(10);
+    digitalWrite(trig, LOW);
+    duration = pulseIn(Echo, HIGH);
+    distance = (duration*.0343)/2;
+    return distance;
+  }
