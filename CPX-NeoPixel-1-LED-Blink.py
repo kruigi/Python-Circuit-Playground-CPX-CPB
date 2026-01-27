@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2018 Kattni Rembor for Adafruit Industries
+#
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: 2017 John Edgar Park for Adafruit Industries
+#
+# SPDX-License-Identifier: MIT
+
+# Circuit Playground NeoPixel
 # Circuit Playground NeoPixel
 import time
 import board
@@ -9,7 +17,7 @@ pixels = neopixel.NeoPixel(board.NEOPIXEL, 10, brightness=0.2, auto_write=False)
 # choose which demos to play
 # 1 means play, 0 means don't!
 color_chase_demo = 1
-flash_demo = 1
+flash_demo = 0
 rainbow_demo = 1
 rainbow_cycle_demo = 1
 
@@ -63,19 +71,19 @@ while True:
         pixels.fill(RED)
         pixels.show()
         # Increase or decrease to change the speed of the solid color change.
-        time.sleep(1)
+        time.sleep(2)
         pixels.fill(GREEN)
         pixels.show()
-        time.sleep(1)
+        time.sleep(2)
         pixels.fill(BLUE)
         pixels.show()
-        time.sleep(1)
+        time.sleep(2)
         pixels.fill(WHITE)
         pixels.show()
-        time.sleep(1)
+        time.sleep(2)
 
     if rainbow_cycle_demo:
-        rainbow_cycle(0.05)  # Increase the number to slow down the rainbow.
+        rainbow_cycle(0.01)  # Increase the number to slow down the rainbow.
 
     if rainbow_demo:
-        rainbow(0.05)  # Increase the number to slow down the rainbow.
+        rainbow(0.01)  # Increase the number to slow down the rainbow.
