@@ -29,7 +29,7 @@ def main():
   my_num_1 = 5
   my_num_2 = 2
   mult = multi(my_num_1, my_num_2)
-  print("The multiplyed value of", my_num_1, "+", my_num_2, "=",mult)
+  print("The multiplied value of", my_num_1, "+", my_num_2, "=",mult)
   my_num_1 = 5
   my_num_2 = 2
   ev = even(my_num_1, my_num_2)
