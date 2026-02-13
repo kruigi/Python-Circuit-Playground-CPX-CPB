@@ -39,3 +39,11 @@ print(y)
 print(type(y))
 print(x[3])
 print(type(x[3]))
+
+
+v = [1,2,3,4]
+s = ['a','b','c','d']
+m = [1, 'a', 1.1, 2, 's', 2.2]
+print(v)
+print(s)
+print(m)
